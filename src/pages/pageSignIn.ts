@@ -197,6 +197,10 @@ const onFirstMount = () => {
 
   btnQr = Button('btn-primary btn-secondary btn-primary-transparent primary', {text: 'Login.QR.Login'});
 
+  const disclaimerText = document.createElement('div');
+  disclaimerText.classList.add('text-center')
+  disclaimerText.innerHTML = `<span>To use our service, you need an active Telegram account. If you don't have one, download the<a href="https://play.google.com/store/apps/details?id=org.telegram.messenger&amp;hl=en&amp;gl=US" target="_blank" rel="noopener noreferrer"> Telegram app </a>from your app store and create an account first</span>`
+
   const qrMounted = false;
   btnQr.addEventListener('click', () => {
     pageSignQR.mount();
@@ -221,17 +225,28 @@ const onFirstMount = () => {
     }); */
   });
 
-  inputWrapper.append(countryInputField.container, telInputField.container, signedCheckboxField.label, btnNext, btnQr);
+
+  inputWrapper.append(countryInputField.container, telInputField.container, signedCheckboxField.label, btnNext, btnQr, disclaimerText);
+
+  const titleContainer = document.createElement('div');
+  titleContainer.classList.add('flex-div-title-container');
+
+  const image = new Image();
+  image.classList.add('tg-logo-small-inline');
+  image.src = 'https://i.ibb.co/9hYHfhC/tg-tp.png';
+  titleContainer.append(image)
 
   const h4 = document.createElement('h4');
   h4.classList.add('text-center');
   _i18n(h4, 'Login.Title');
 
+  titleContainer.append(h4)
+
   const subtitle = document.createElement('div');
   subtitle.classList.add('subtitle', 'text-center');
   _i18n(subtitle, 'Login.StartText');
 
-  page.pageEl.querySelector('.container').append(h4, subtitle, inputWrapper);
+  page.pageEl.querySelector('.container').append(titleContainer, subtitle, inputWrapper);
 
   const tryAgain = () => {
     rootScope.managers.apiManager.invokeApi('help.getNearestDc').then((nearestDcResult) => {

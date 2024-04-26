@@ -4,7 +4,7 @@
  * https://github.com/morethanwords/tweb/blob/master/LICENSE
  */
 
-#column-left {
+ #column-left {
   //display: flex;
   flex-direction: column;
   flex: 1 1 auto;
@@ -320,6 +320,10 @@
         margin-top: -.25rem;
       }
     }
+  }
+
+  .dnonemycustomclass {
+    display : none;
   }
 
   .sidebar-tools-button {

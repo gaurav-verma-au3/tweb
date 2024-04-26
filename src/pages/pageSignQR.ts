@@ -30,15 +30,31 @@ const onFirstMount = async() => {
   const inputWrapper = document.createElement('div');
   inputWrapper.classList.add('input-wrapper');
 
+  const disclaimerText = document.createElement('div');
+  disclaimerText.innerHTML = `<span>To use our service, you need an active Telegram account. If you don't have one, download the<a href="https://play.google.com/store/apps/details?id=org.telegram.messenger&amp;hl=en&amp;gl=US" target="_blank" rel="noopener noreferrer"> Telegram app </a>from your app store and create an account first</span>`
+
   const btnBack = Button('btn-primary btn-secondary btn-primary-transparent primary', {text: 'Login.QR.Cancel'});
-  inputWrapper.append(btnBack);
+  inputWrapper.append(btnBack, disclaimerText);
+
 
   getLanguageChangeButton(inputWrapper);
 
   const container = imageDiv.parentElement;
 
+  const titleContainer = document.createElement('div');
+  titleContainer.classList.add('flex-div-title-container');
+
+  const image = new Image();
+  image.classList.add('tg-logo-small-inline');
+  image.src = 'https://i.ibb.co/9hYHfhC/tg-tp.png';
+
+  titleContainer.append(image)
+
   const h4 = document.createElement('h4');
+  h4.classList.add('no-margin');
   _i18n(h4, 'Login.QR.Title');
+
+  titleContainer.append(h4);
 
   const helpList = document.createElement('ol');
   helpList.classList.add('qr-description');
@@ -48,7 +64,7 @@ const onFirstMount = async() => {
     helpList.append(li);
   });
 
-  container.append(h4, helpList, inputWrapper);
+  container.append(titleContainer, helpList, inputWrapper);
 
   btnBack.addEventListener('click', () => {
     import('./pageSignIn').then((m) => m.default.mount());

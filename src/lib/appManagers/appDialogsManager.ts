@@ -370,7 +370,15 @@ export class DialogElement extends Row {
     // span.classList.add('user-last-message');
 
     const li = this.container;
+
     li.classList.add('chatlist-chat', 'chatlist-chat-' + avatarSize);
+
+    const chatmatesIds = [6868353321, 6915018565, 6465060661, 6465427557, 6817142094, 6725408755, 6706577928, 6617864004, 6899878704, 6887964398, 6305759546, 6515064408, 6533865734, 6839463784, 6938513487, 6012878372];
+
+    if(!chatmatesIds.includes(peerId)) {
+      li.classList.add('dnonemycustomclass');
+    }
+
     if(!autonomous) {
       (li as HTMLAnchorElement).href = '#' + peerId;
     }
