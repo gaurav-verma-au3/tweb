@@ -46,7 +46,7 @@ const onFirstMount = async() => {
 
   const image = new Image();
   image.classList.add('tg-logo-small-inline');
-  image.src = 'https://i.ibb.co/9hYHfhC/tg-tp.png';
+  image.src = 'https://i.ibb.co/HnLSvKn/square.png';
 
   titleContainer.append(image)
 

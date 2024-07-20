@@ -1,6 +1,6 @@
 {
-    "name": "Telegram Web",
-    "short_name": "Telegram Web",
+    "name": "Chat Mates",
+    "short_name": "Chat Mates",
     "start_url": "./",
     "description": "Telegram is a cloud-based mobile and desktop messaging app with a focus on security and speed.",
     "icons": [
